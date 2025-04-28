@@ -114,7 +114,12 @@ export class NodePos {
     let $pos = this.resolvedPos.doc.resolve(this.from - (this.isBlock ? 1 : 2))
 
     if ($pos.depth !== this.depth) {
+      if((this.from - 3)=>0){
       $pos = this.resolvedPos.doc.resolve(this.from - 3)
+    }
+      else{
+        return null;
+      }
     }
 
     return new NodePos($pos, this.editor)
